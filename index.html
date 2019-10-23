@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="app.js" defer></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progressive Web App</title>
+  <link rel="manifest" href="./manifest.json"> <!-- 引用manifest檔案 -->
+</head>
+<body>
+  <h1>這是網頁</h1><br><h2>具有與原生App相近的操作體驗</h2>
+  <img src='./imgs/placeholder.png' data-src='./imgs/webserver.png' alt='NAME'>
+  <script>
+  // 此處程式碼 後面相關章節會去說明
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('sw.js')
+        .then(function(registration) {})
+        .catch(function(err) {})
+    })
+  }
+  </script>
+</body>
+</html>
