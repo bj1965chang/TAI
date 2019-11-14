@@ -40,8 +40,8 @@ self.addEventListener('fetch', function (event) {
   )
 })
 
-if(self.DeviceOrientationEvent) {
-  self.addEventListener('deviceorientation', function(event) {
+if(window.DeviceOrientationEvent) {
+  window.addEventListener('deviceorientation', function(event) {
   var a = document.getElementById('alpha'),
         b = document.getElementById('beta'),
         g = document.getElementById('gamma'),
