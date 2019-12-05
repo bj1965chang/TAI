@@ -48,7 +48,7 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
         })
         .then(json => {
             list.innerHTML = json
-                            .map(item => `<li>${item.name}</li>`)
+                            .map(item => '<li>${item.name}</li>')
                             .join('');
         })  
   </script>
