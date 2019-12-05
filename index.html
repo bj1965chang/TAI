@@ -25,6 +25,7 @@ google 有個以此技術開發的網站 https://events.google.com/io/ 可用手
 iphone的safari已納入此規格，但目前還有一些相容性問題，應該很快會完全相容這技術。
 
 還是很新的技術，蠻有趣的。</P>
+<ul id="list"></ul>
 <button type="button" onclick="location.href='showme.html';">Click Me!</button>
   <br>By Dick<br>
   <img src='./imgs/webserver.png' data-src='./imgs/webserver.png' alt='NAME'>
@@ -37,6 +38,19 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
         .catch(function(err) {})
     })
   }
+  </script>
+  <script>
+        const list = document.getElementById('list');
+        // 接著發送 request
+        fetch('http://data.ntpc.gov.tw/od/data/api/04958686-1B92-4B74-889D-9F34409B272B?$format=json')
+        .then(res => {
+            return res.json();
+        })
+        .then(json => {
+            list.innerHTML = json
+                            .map(item => `<li>${item.name}</li>`)
+                            .join('');
+        })  
   </script>
 </body>
 </html>
