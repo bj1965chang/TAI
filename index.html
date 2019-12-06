@@ -46,22 +46,24 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
   }
   </script>
   <script>
-     $('#getData').click(function(){
-        $.ajax({
-            url: 'json.html',
-            type: 'GET',
-            headers: {
-                Authorization: 'Bearer '
-            },
-            dataType: 'json',
-            success: function(data){
-                $('#result').val(JSON.stringify(data));
-            },
-            error: function(data){
-                $('#result').val('error');
-            }
-        })
-    });
+	$(document).ready(function () {
+		$('#getData').click(function(){
+			$.ajax({
+				url: 'json.html',
+				type: 'GET',
+				headers: {
+					Authorization: 'Bearer '
+				},
+				dataType: 'json',
+				success: function(data){
+					$('#result').val(JSON.stringify(data));
+				},
+				error: function(data){
+					$('#result').val('error');
+				}
+			})
+		});
+	});
   /*	
   const list = document.getElementById('list');
 	function readResponseAsText(response) {
