@@ -41,17 +41,25 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
   </script>
   <script>
   const list = document.getElementById('list');
-  fetch('json.html')
-	.then(function(response) {
-	  list.innerHTML = response;
-	})
-	.then(function(responseAsJson) {
-	  // Do stuff with the JSON
-	  console.log(responseAsJson);
-	})
-	.catch(function(error) {
-	  console.log('Looks like there was a problem: \n', error);
-	});
+	function readResponseAsText(response) {
+	  return response.text();
+	}
+
+	function showText(responseAsText) {
+	  // Assuming the DOM has a div with id 'message'
+	  var message = document.getElementById('message');
+	  message.textContent = responseAsText;
+	}
+
+	function fetchText(pathToResource) {
+	  fetch(pathToResource)
+	  .then(validateResponse)
+	  .then(readResponseAsText)
+	  .then(showText)
+	  .catch(logError);
+	}
+
+	fetchText('json.html');
   /*
         const list = document.getElementById('list');
         // 接著發送 request
