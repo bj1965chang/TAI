@@ -40,6 +40,10 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
   }
   </script>
   <script>
+    fetch("https://api.github.com/orgs/angular/members?page=1&per_page=5")
+    .then(res => res.json())
+    .then(console.dir)
+  /*	
   const list = document.getElementById('list');
 	function readResponseAsText(response) {
 	  return response.text();
@@ -58,7 +62,7 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
 	}
 
 	fetchText('json.html');
-  /*
+
         const list = document.getElementById('list');
         // 接著發送 request
         fetch('json.html')
