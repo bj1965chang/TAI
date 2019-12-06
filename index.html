@@ -42,12 +42,7 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
   <script>
         const list = document.getElementById('list');
         // 接著發送 request
-        fetch('json.html',{
-		method:'GET',
-		Headers:new Headers({
-		'Content-Type':'application/json'
-		})
-		})
+        fetch('json.html')
         .then(res => {
             return res.json();
         })
