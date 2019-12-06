@@ -27,8 +27,14 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
 還是很新的技術，蠻有趣的。</P>
 <ul id="list"></ul>
 <button type="button" onclick="location.href='https://od.moi.gov.tw/api/v1/rest/datastore/301000000A-000605-040';">Click Me!</button>
+<button id="getData">getData!</button>
+	<div>
+		<textarea id="result" style="width:100%"></textarea>
+	</div>
   <br>By Dick<br>
   <img src='./imgs/webserver.png' data-src='./imgs/webserver.png' alt='NAME'>
+  	<!-- jQuery -->
+	<script src="http://code.jquery.com/jquery.js"></script>
   <script>
   // 此處程式碼 後面相關章節會去說明
   if ('serviceWorker' in navigator) {
@@ -40,11 +46,12 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
   }
   </script>
   <script>
+     $('#getData').click(function(){
         $.ajax({
             url: 'json.html',
             type: 'GET',
             headers: {
-                Authorization: 'Bearer ' + $('#token').val()
+                Authorization: 'Bearer '
             },
             dataType: 'json',
             success: function(data){
@@ -54,6 +61,7 @@ iphone的safari已納入此規格，但目前還有一些相容性問題，應�
                 $('#result').val('error');
             }
         })
+    });
   /*	
   const list = document.getElementById('list');
 	function readResponseAsText(response) {
